@@ -7,13 +7,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.guia233.ui.screen.RegistroScreen
 import com.example.guia233.ui.screen.ResumenScreen
-import com.example.guia233.viewmodel.UsuarioaviewModel
+import com.example.guia233.viewmodel.UsuarioViewModel
 
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
     // Aqui creamos el ViewModel una sola vez
-    val usuarioViewModel: UsuarioaviewModel = viewModel()
+    val usuarioViewModel: UsuarioViewModel = viewModel()
     NavHost(
         navController = navController,
         startDestination = "registro"

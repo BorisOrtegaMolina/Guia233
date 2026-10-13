@@ -21,12 +21,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.guia233.viewmodel.UsuarioaviewModel
+import com.example.guia233.viewmodel.UsuarioViewModel
 
 @Composable
 fun RegistroScreen(
     navController: NavController,
-    viewModel: UsuarioaviewModel
+    viewModel: UsuarioViewModel
 ){
     val estado by viewModel.estado.collectAsState()
     Column(
@@ -105,15 +105,22 @@ fun RegistroScreen(
         // Botón: enviar
         Button(
             onClick = {
+                //Agregar Persistencia
                 if (viewModel.validarFormulario()) {
-                    navController.navigate(route = "resumen")
+                    viewModel.guardar {
+                        navController.navigate("resumen")
+                    }
+
                 }
+//fin agregar Persistencia
             },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Registrar")
         }
     }
+
+
 }
 
 
